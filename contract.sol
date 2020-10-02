@@ -4,18 +4,18 @@ contract HelloWorld
     address creator;
     string greeting;
 
-    function HelloWorld(string _greeting) public
+    constructor(string memory _greeting) public
     {
         creator = msg.sender;
         greeting = _greeting;
     }
 
-    function greet() constant returns (string)
+    function greet() public returns (string memory)
     {
         return greeting;
     }
 
-    function setGreeting(string _newgreeting)
+    function setGreeting(string memory _newgreeting) public
     {
         greeting = _newgreeting;
     }
