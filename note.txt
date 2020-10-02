@@ -1,33 +1,28 @@
-solc --bin contract.sol
-solc --abi contract.sol
-
 docker build -t eth .
 docker run -it eth
 
-geth --datadir ./data account new
-changer l'addresse de coinbase
-geth --datadir ./data init genesis.json
-geth console
-
 var abi = [{"inputs":[],"name":"get","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"pure","type":"function"}];
  
-var myContract = eth.contract(abi);
+var myContract = web3.eth.contract(abi);
  
 var bytecode = '0x' + '608060405234801561001057600080fd5b5061011e806100206000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c80636d4ce63c14602d575b600080fd5b603360ab565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101560715780820151818401526020810190506058565b50505050905090810190601f168015609d5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b60606040518060400160405280600f81526020017f48656c6c6f20436f6e747261637473000000000000000000000000000000000081525090509056fea2646970667358221220c7a20e8d9d9532843071aed062791f253e973e7944fb70873a7bca18efc5520d64736f6c63430007020033';
 
-var txDeploy = {from: eth.accounts[0], data: bytecode, gas: 100000000};
-
-primary = eth.accounts[0];
-personal.unlockAccount(primary, "");
-
-miner.setEtherbase(primary)
-miner.start()
-
+var txDeploy = {from: web3.eth.accounts[0], data: bytecode, gas: 100000};
 
 var myContractPartialInstance = myContract.new(txDeploy);
 
-
 myContractPartialInstance.get()
 
+
+
+
+
+personal.unlockAccount(eth.accounts[0], "");
+solc --bin contract.sol
+solc --abi contract.sol
+geth --datadir ./data init genesis.json
+geth --dev --allow-insecure-unlock console
+eth.getBalance(eth.coinbase)
+eth.getBlock("latest")
 
 

@@ -1,12 +1,17 @@
 {
- "config": {
- "chainId": 1907,
- "homesteadBlock": 0,
- "eip155Block": 0,
- "eip158Block": 0
- },
- "difficulty": "1",
- "gasLimit": "2100000",
- "alloc": {},
- "coinbase": "0xb4bb81a9e9a030e97ba09b86c35dae8836cd4bac"
+  "config": {
+        "chainId": 4777,
+        "homesteadBlock": 0,
+        "byzantiumBlock":0,
+        "constantinopleBlock":0,
+        "eip150Block": 0,
+        "eip155Block": 0,
+        "eip158Block": 0
+    },
+  "alloc"      : {},
+  "difficulty" : "0x400",
+  "extraData"  : "",
+  "gasLimit"   : "0x7A1200",
+  "parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "timestamp"  : "0x00"
 }
